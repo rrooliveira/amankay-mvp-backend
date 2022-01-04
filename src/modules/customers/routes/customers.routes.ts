@@ -6,7 +6,7 @@ import isCustomerAuthenticated from '@shared/middleware/isCustomerAuthenticated'
 const customersRouter = Router();
 const customersController = new CustomersController();
 
-//customersRouter.get('/', isUserAuthenticated, customersController.index);
+customersRouter.get('/all', customersController.index);
 
 customersRouter.get('/', isCustomerAuthenticated, customersController.show);
 
