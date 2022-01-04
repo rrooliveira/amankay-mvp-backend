@@ -9,7 +9,7 @@ interface ITokenPayload {
   sub: string;
 }
 
-export default function isUserAuthenticated(
+export default function isCustomerAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction,
@@ -23,11 +23,11 @@ export default function isUserAuthenticated(
   const [, token] = headers.split(' ');
 
   try {
-    const decodedToken = verify(token, authConfig.jwt.secret);
+    const decodedToken = verify(token, String(authConfig.jwt.secret));
 
     const { sub } = decodedToken as ITokenPayload;
 
-    request.user = {
+    request.customer = {
       id: sub,
     };
 
