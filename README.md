@@ -3,6 +3,7 @@
 ## Commands to execute the application
 - npm install
 - npm run dev
+- duplicate and rename .env.example to .env
 
 ## Create container with Postgres database
 ```
